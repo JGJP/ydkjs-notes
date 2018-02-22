@@ -20,6 +20,15 @@
 
 ### Executing a Program
 
-translation of commands every time the program is run -> interpreting  
-translation is done ahead of time -> compiling  
-JavaScript engines actually compile the program on the fly and then immediately run the compiled code  
+translation of code:  
+every time the program is run -> interpreting  
+ahead of time -> compiling  
+
+JavaScript engines -> compile on the fly, immediately run
+
+### Input
+
+```js
+age = prompt( "Please tell me your age:" );
+console.log( age );
+```

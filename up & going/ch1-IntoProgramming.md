@@ -35,18 +35,27 @@ console.log( age );
 
 ### Operators
 
-`=` assignment
-`+ - * /` maths
-`+= -= *= /=` compound, combining assignment and math
-`++ --` increment/decrement
-`.` object property access, `obj.a` same as `obj["a"]`
-equality:
-* `==` loose-equals
-* `===` strict-equals
-* `!=` loose not-equals
-* `!==` strict not-equals
-comparison:
-* `< >` less/greater than
-* `<= >=` less/greater than or loose-equals
-`&& ||` logical
+`=` assignment  
+`+ - * /` maths  
+`+= -= *= /=` compound, combining assignment and math  
+`++ --` increment/decrement  
+`.` object property access, `obj.a` same as `obj["a"]`  
 
+equality:  
+* `==` loose-equals  
+* `===` strict-equals  
+* `!=` loose not-equals  
+* `!==` strict not-equals  
+
+comparison:  
+* `< >` less/greater than  
+* `<= >=` less/greater than or loose-equals  
+`&& ||` logical  
+
+### Values & Types
+
+values are called literals  
+`'string'` string literal  
+`42` number literal  
+`true` boolean literal  
+others: `arrays, objects, functions`  

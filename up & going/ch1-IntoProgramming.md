@@ -59,3 +59,13 @@ values are called literals
 `42` number literal  
 `true` boolean literal  
 others: `arrays, objects, functions`  
+
+### Converting Between Types
+
+`number` to `string` is coercion  
+`string` to `number`:  
+```js
+var a = "42";
+var b = Number( a );
+```
+`"99.99" == 99.99` is `true` in javascript because loose-equals converts types  

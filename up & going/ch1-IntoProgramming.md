@@ -88,3 +88,22 @@ multiline can be in the middle of a line:
 ```js
 var a = /* arbitrary value */ 42;
 ```
+
+### Variables
+
+variable holds a specific type of value: *static typing*, or *type enforcement*  
+-> prevents unintended conversions  
+
+variable can hold any type of value: *weak typing*, or *dynamic typing*  
+-> program flexibility  
+-> used by Javascript  
+
+constants are variables not meant to be changed, when declared in one place it's easy to change them later.  
+they're usually written in all caps with underscores:  
+```js
+var TAX_RATE = 0.08;
+```
+es6 allows const, value can't be changed by program:  
+```js
+const TAX_RATE = 0.08;
+```

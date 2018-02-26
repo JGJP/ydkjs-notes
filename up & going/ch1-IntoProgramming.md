@@ -69,3 +69,22 @@ var a = "42";
 var b = Number( a );
 ```
 `"99.99" == 99.99` is `true` in javascript because loose-equals converts types  
+
+### Code Comments
+
+* comment your code
+* too many comments is a sign of bad code
+* explain *why*, not *what*, maybe *how*
+
+```js
+// single-line comment
+
+/* a multiline
+    comment.
+        */
+```
+
+multiline can be in the middle of a line:  
+```js
+var a = /* arbitrary value */ 42;
+```

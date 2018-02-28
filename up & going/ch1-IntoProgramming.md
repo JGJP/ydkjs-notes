@@ -118,7 +118,7 @@ a block (valid but pointless on its own):
 }
 ```
 
-usually attached to a control statement:  
+is usually attached to a control statement:  
 ```js
 if (amount > 10) {			// <-- block attached to `if`
 	amount = amount * 2;

@@ -107,3 +107,21 @@ es6 allows const, value can't be changed by program:
 ```js
 const TAX_RATE = 0.08;
 ```
+
+### Blocks
+
+a block (valid but pointless on its own):  
+```js
+{
+	amount = amount * 2;
+	console.log( amount );	// 199.98
+}
+```
+
+usually attached to a control statement:  
+```js
+if (amount > 10) {			// <-- block attached to `if`
+	amount = amount * 2;
+	console.log( amount );	// 199.98
+}
+```

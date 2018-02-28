@@ -125,3 +125,9 @@ if (amount > 10) {			// <-- block attached to `if`
 	console.log( amount );	// 199.98
 }
 ```
+
+### Conditionals
+
+`if` statement is the most common conditional  
+`if` expects a `boolean` and will coerce to get it  
+`0` and `""` are "falsy", they are false when coerced to a `boolean`  

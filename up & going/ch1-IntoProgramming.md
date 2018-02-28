@@ -91,10 +91,10 @@ var a = /* arbitrary value */ 42;
 
 ### Variables
 
-variable holds a specific type of value: *static typing*, or *type enforcement*  
+when variables hold a specific type of value: *static typing*, or *type enforcement*  
 -> prevents unintended conversions  
 
-variable can hold any type of value: *weak typing*, or *dynamic typing*  
+when variables can hold any type of value: *weak typing*, or *dynamic typing*  
 -> program flexibility  
 -> used by Javascript  
 

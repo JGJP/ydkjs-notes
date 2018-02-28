@@ -131,3 +131,45 @@ if (amount > 10) {			// <-- block attached to `if`
 `if` statement is the most common conditional  
 `if` expects a `boolean` and will coerce to get it  
 `0` and `""` are "falsy", they are false when coerced to a `boolean`  
+
+### Loops
+
+a loop repeats a set of actions until its condition fails  
+includes a test condition followed by a block, each time it executes is an *iteration*  
+
+`while` and `do..while` loops:  
+```js
+// tests conditional before iteration
+while (numOfCustomers > 0) {
+	console.log( "How may I help you?" );
+	numOfCustomers = numOfCustomers - 1;
+}
+
+// tests conditional after iteration, will always run at least once
+do {
+	console.log( "How may I help you?" );
+	numOfCustomers = numOfCustomers - 1;
+} while (numOfCustomers > 0);
+```
+
+introduce `break` statement to stop loop:  
+```js
+while (true) {
+	if ((i > 9)) {
+		break;
+	}
+	console.log( i );	// 0 1 2 3 4 5 6 7 8 9
+	i = i + 1;
+}
+```
+
+`for` loop can accomplish the same thing:  
+```js
+for (var i = 0; i <= 9; i = i + 1) {
+	console.log( i );	// 0 1 2 3 4 5 6 7 8 9
+}
+```
+`for` loop has three clauses:  
+* initialization clause (`var i=0`), runs before first iteration  
+* conditional test clause (`i <= 9`), tested before every iteration  
+* update clause (`i = i + 1`), executed after every iteration  

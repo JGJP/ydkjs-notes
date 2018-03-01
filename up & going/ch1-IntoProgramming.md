@@ -26,14 +26,14 @@ ahead of time -> compiling
 
 JavaScript engines -> compile on the fly, immediately run
 
-### Input
+## Input
 
 ```js
 age = prompt( "Please tell me your age:" );
 console.log( age );
 ```
 
-### Operators
+## Operators
 
 `=` assignment  
 `+ - * /` maths  
@@ -52,7 +52,7 @@ comparison:
 * `<= >=` less/greater than or loose-equals  
 `&& ||` logical  
 
-### Values & Types
+## Values & Types
 
 values are called literals  
 `'string'` string literal  
@@ -70,7 +70,7 @@ var b = Number( a );
 ```
 `"99.99" == 99.99` is `true` in javascript because loose-equals converts types  
 
-### Code Comments
+## Code Comments
 
 * comment your code
 * too many comments is a sign of bad code
@@ -89,7 +89,7 @@ multiline can be in the middle of a line:
 var a = /* arbitrary value */ 42;
 ```
 
-### Variables
+## Variables
 
 when variables hold a specific type of value: *static typing*, or *type enforcement*  
 -> prevents unintended conversions  
@@ -108,7 +108,7 @@ es6 allows const, value can't be changed by program:
 const TAX_RATE = 0.08;
 ```
 
-### Blocks
+## Blocks
 
 a block (valid but pointless on its own):  
 ```js
@@ -126,13 +126,13 @@ if (amount > 10) {			// <-- block attached to `if`
 }
 ```
 
-### Conditionals
+## Conditionals
 
 `if` statement is the most common conditional  
 `if` expects a `boolean` and will coerce to get it  
 `0` and `""` are "falsy", they are false when coerced to a `boolean`  
 
-### Loops
+## Loops
 
 a loop repeats a set of actions until its condition fails  
 includes a test condition followed by a block, each time it executes is an *iteration*  
@@ -173,3 +173,13 @@ for (var i = 0; i <= 9; i = i + 1) {
 * initialization clause (`var i=0`), runs before first iteration  
 * conditional test clause (`i <= 9`), tested before every iteration  
 * update clause (`i = i + 1`), executed after every iteration  
+
+## Functions
+
+a function is a usually named block of code that can be called and executed  
+optionally takes arguments and can return a value  
+
+functions can be used for code that's to be called multiple times  
+can also just be used to oragnize bits of code into named collections  
+
+

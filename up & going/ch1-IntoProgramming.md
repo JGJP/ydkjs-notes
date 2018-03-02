@@ -176,10 +176,50 @@ for (var i = 0; i <= 9; i = i + 1) {
 
 ## Functions
 
-a function is a usually named block of code that can be called and executed  
-optionally takes arguments and can return a value  
+* a function is a usually named block of code that can be called and executed
+* optionally takes arguments and can return a value
+* functions can be used for code that's to be called multiple times
+* can also just be used to oragnize bits of code into named collections
 
-functions can be used for code that's to be called multiple times  
-can also just be used to oragnize bits of code into named collections  
+### Scope
 
+* technically called *lexical scope*
+* each function has own scope
+* only code inside a function can access that function's *scoped* variables
+* variable names have to be unique within the same scope
 
+```js
+function one() {
+	var a = 1;
+	console.log( a );
+}
+
+function two() {
+	var a = 2;
+	console.log( a );
+}
+
+one();		// 1
+two();		// 2
+```
+
+* scopes can be nested
+* code in one scope can access its own variables and those of any scope outside of it.
+
+```js
+function outer() {
+	var a = 1;
+
+	function inner() {
+		var b = 2;
+		// we can access both `a` and `b` here
+		console.log( a + b );	// 3
+	}
+
+	inner();
+	// we can only access `a` here
+	console.log( a );			// 1
+}
+
+outer(); // 3 1
+```

@@ -84,26 +84,26 @@ var b = Number( a );
         */
 ```
 
-multiline can be in the middle of a line:  
+Multiline can be in the middle of a line:  
 ```js
 var a = /* arbitrary value */ 42;
 ```
 
 ## Variables
 
-when variables hold a specific type of value: *static typing*, or *type enforcement*  
+When variables hold a specific type of value: *static typing*, or *type enforcement*  
 -> prevents unintended conversions  
 
-when variables can hold any type of value: *weak typing*, or *dynamic typing*  
+When variables can hold any type of value: *weak typing*, or *dynamic typing*  
 -> program flexibility  
 -> used by Javascript  
 
-constants are variables not meant to be changed, when declared in one place it's easy to change them later.  
-they're usually written in all caps with underscores:  
+Constants are variables not meant to be changed, when declared in one place it's easy to change them later.  
+They're usually written in all caps with underscores:  
 ```js
 var TAX_RATE = 0.08;
 ```
-es6 allows const, value can't be changed by program:  
+ES6 allows const, value can't be changed by program:  
 ```js
 const TAX_RATE = 0.08;
 ```
@@ -134,8 +134,8 @@ if (amount > 10) {			// <-- block attached to `if`
 
 ## Loops
 
-a loop repeats a set of actions until its condition fails  
-includes a test condition followed by a block, each time it executes is an *iteration*  
+A loop repeats a set of actions until its condition fails.  
+Includes a test condition followed by a block, each time it executes is an *iteration*.  
 
 `while` and `do..while` loops:  
 ```js

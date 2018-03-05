@@ -4,7 +4,7 @@
 
 ## Values & Types
 
-use `typeof` operator to find type of a variable's value:
+Use `typeof` operator to find type of a variable's value:
 
 ```js
 var a;
@@ -49,9 +49,9 @@ obj["b"];	// 42
 obj["c"];	// true
 ```
 
-bracket notation useful for property names with special characters in it, like `obj["hello world!"]` -- referred to as *keys* when accessed via bracket notation. The `[ ]` notation requires either a variable (explained next) or a `string` *literal* (which needs to be wrapped in `" .. "` or `' .. '`).
+Bracket notation is useful for property names with special characters in it, like `obj["hello world!"]` -- referred to as *keys* when accessed via bracket notation. The `[ ]` notation requires either a variable (explained next) or a `string` *literal* (which needs to be wrapped in `" .. "` or `' .. '`).
 
-bracket notation also useful for accessing a property/key whose name is stored in another variable:
+Bracket notation is also useful for accessing a property/key whose name is stored in another variable:
 
 ```js
 var obj = {
@@ -65,4 +65,5 @@ obj[b];			// "hello world"
 obj["b"];		// 42
 ```
 
-value subtypes: *array* and *function*, are specialized versions of the `object` type.
+Value subtypes: *array* and *function*, are specialized versions of the `object` type.
+

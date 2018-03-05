@@ -88,3 +88,19 @@ typeof arr;		// "object"
 
 Arrays are objects, so can also have properties, like the automatically updated `length` property.
 
+#### Functions
+
+Functions are another `object` subtype.
+
+```js
+function foo() {
+	return 42;
+}
+
+foo.bar = "hello world";
+
+typeof foo;			// "function"
+typeof foo();		// "number"
+typeof foo.bar;		// "string"
+```
+

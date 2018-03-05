@@ -104,3 +104,24 @@ typeof foo();		// "number"
 typeof foo.bar;		// "string"
 ```
 
+### Built-In Type Methods
+
+The built-in types and subtypes we've just discussed have behaviors exposed as properties and methods.
+
+```js
+var a = "hello world";
+var b = 3.14159;
+
+a.length;				// 11
+a.toUpperCase();		// "HELLO WORLD"
+b.toFixed(4);			// "3.1416"
+```
+
+There is a `String` object wrapper form, typically called a "native," that pairs with the primitive `string` type.  
+This object wrapper defines the `toUpperCase()` method on its prototype.  
+
+When you use a primitive value like `"hello world"` as an `object` by referencing a property or method, JS automatically "boxes" the value to its object wrapper counterpart.  
+
+* `string` value wrapped by a `String` object
+* `number` value wrapped by a `Number` object
+* `boolean` value wrapped by a `Boolean` object

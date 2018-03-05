@@ -67,3 +67,24 @@ obj["b"];		// 42
 
 Value subtypes: *array* and *function*, are specialized versions of the `object` type.
 
+#### Arrays
+
+An array is an `object` that holds values in numerically indexed positions.
+
+```js
+var arr = [
+	"hello world",
+	42,
+	true
+];
+
+arr[0];			// "hello world"
+arr[1];			// 42
+arr[2];			// true
+arr.length;		// 3
+
+typeof arr;		// "object"
+```
+
+Arrays are objects, so can also have properties, like the automatically updated `length` property.
+

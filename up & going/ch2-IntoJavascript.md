@@ -125,3 +125,27 @@ When you use a primitive value like `"hello world"` as an `object` by referencin
 * `string` value wrapped by a `String` object
 * `number` value wrapped by a `Number` object
 * `boolean` value wrapped by a `Boolean` object
+
+### Comparing Values
+
+the result of any comparison is always a `boolean` value.
+
+#### Coercion
+
+* *explicit* coercion: obvious that a conversion will occur  
+
+```js
+var a = "42";
+var b = Number( a );
+a;				// "42"
+b;				// 42
+```
+
+* *implicit* coercion: non-obvious side effect causes conversion
+
+```js
+var a = "42";
+var b = a * 1;	// "42" implicitly coerced to 42 here
+a;				// "42"
+b;				// 42
+```

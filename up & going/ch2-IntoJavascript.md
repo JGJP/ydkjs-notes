@@ -149,3 +149,21 @@ var b = a * 1;	// "42" implicitly coerced to 42 here
 a;				// "42"
 b;				// 42
 ```
+
+#### Truthy & Falsy
+
+"falsy" values:
+
+* `""` (empty string)
+* `0`, `-0`, `NaN` (invalid `number`)
+* `null`, `undefined`
+* `false`
+
+Anything not on that list is "truthy":  
+
+* `"hello"`
+* `42`
+* `true`
+* `[ ]`, `[ 1, "2", 3 ]` (arrays)
+* `{ }`, `{ a: 42 }` (objects)
+* `function foo() { .. }` (functions)

@@ -167,3 +167,24 @@ Anything not on that list is "truthy":
 * `[ ]`, `[ 1, "2", 3 ]` (arrays)
 * `{ }`, `{ a: 42 }` (objects)
 * `function foo() { .. }` (functions)
+
+#### Equality
+
+* Four equality operators: `==`, `===`, `!=`, `!==`. 
+* `!` forms are symmetric "not equal" versions of their counterparts
+* *non-equality* should not be confused with *inequality*.
+
+* `==` checks for value equality with coercion allowed
+* `===` checks for value equality with coercion not allowed (strict equality)
+
+`array`s are by default coerced to `string`s, but when comparing two objects, the references are compared, not contents.
+
+```js
+var a = [1,2,3];
+var b = [1,2,3];
+var c = "1,2,3";
+
+a == c;		// true
+b == c;		// true
+a == b;		// false
+```

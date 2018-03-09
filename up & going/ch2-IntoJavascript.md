@@ -188,3 +188,29 @@ a == c;		// true
 b == c;		// true
 a == b;		// false
 ```
+
+#### Inequality
+
+* Relational comparison　operators, usually used for `number`s: `<`, `>`, `<=`, `>=`.
+* Can also be used for `string` values, using typical alphabetic rules (`"bar" < "foo"`).
+* Similar rules as `==` comparison apply to the inequality operators, but no `===` "strict equality" equivalent.
+
+```js
+var a = 41;
+var b = "42";
+var c = "43";
+
+a < b;		// true, b coerced to number
+b < c;		// true, no coercion, compared lexicographically
+```
+
+No "strict inequality" forms, `false` always returned when string coercion gives `NaN`:
+
+```js
+var a = 42;
+var b = "foo";
+
+a < b;		// false
+a > b;		// false
+a == b;		// false
+```

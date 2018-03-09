@@ -214,3 +214,9 @@ a < b;		// false
 a > b;		// false
 a == b;		// false
 ```
+
+## Variables
+
+* Variable names (including function names) must be valid *identifiers*.
+* An identifier must start with `a`-`z`, `A`-`Z`, `$`, or `_`. It can then contain any of those characters plus the numerals `0`-`9`.
+* Certain words ("reserved words") cannot be used as variables, but are OK as property names: `for`, `in`, `if`, etc. as well as `null`, `true`, and `false`.

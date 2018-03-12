@@ -243,3 +243,68 @@ function foo() {
 
 console.log( a );	// 2
 ```
+
+#### Nested Scopes
+
+```js
+function foo() {
+	var a = 1;
+
+	function bar() {
+		var b = 2;
+
+		function baz() {
+			var c = 3;
+
+			console.log( a, b, c );	// 1 2 3
+		}
+
+		baz();
+		console.log( a, b );		// 1 2
+	}
+
+	bar();
+	console.log( a );				// 1
+}
+
+foo();
+```
+
+* Accessing a variable in a scope where it's not available: `ReferenceError`  
+* Trying to set a variable that hasn't been declared will create a variable in the top-level global scope (bad!) or give an error, depending on "strict mode"  
+
+```js
+function foo() {
+	a = 1;	// `a` not formally declared
+}
+
+foo();
+a;			// 1 -- oops, auto global variable :(
+```
+
+Always formally declare your variables.  
+ES6 *lets* you declare variables to belong to individual blocks (pairs of `{ .. }`), using `let`.  
+Scoping rules almost the same.  
+
+```js
+function foo() {
+	var a = 1;
+
+	if (a >= 1) {
+		let b = 2;
+
+		while (b < 5) {
+			let c = b * 2;
+			b++;
+
+			console.log( a + c );
+		}
+	}
+}
+
+foo();
+// 5 7 9
+```
+
+Because of `let` instead of `var`, `b` belongs only to the `if` statement, not to the whole `foo()` function.  
+`c` also belongs only to the `while` loop.  

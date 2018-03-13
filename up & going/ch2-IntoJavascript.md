@@ -307,3 +307,31 @@ foo();
 
 * Because of `let` instead of `var`, `b` belongs only to the `if` statement, not to the whole `foo()` function.  
 * `c` also belongs only to the `while` loop.  
+
+## Conditionals
+
+`switch` without `break` after each `case` results in "fall through", sometimes useful/desired:
+
+```js
+switch (a) {
+	case 2:
+	case 10:
+		// some cool stuff when a is 2 OR 10
+		break;
+	case 42:
+		// other stuff for 42
+		break;
+	default:
+		// fallback
+}
+```
+
+Another conditional is the "conditional operator" or "ternary operator". More concise form of `if..else` statement:
+
+```js
+var a = 42;
+
+var b = (a > 41) ? "hello" : "world";
+```
+
+During assignment is the most common usage.

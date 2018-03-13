@@ -335,3 +335,53 @@ var b = (a > 41) ? "hello" : "world";
 ```
 
 During assignment is the most common usage.
+
+## Strict Mode
+
+ES5 added a "strict mode", tightens rules for certain behaviors, for safety, as guidelines, and better optimization by the engine.  
+Strict mode is always preferable.  
+
+You can opt in to strict mode for an individual function, or an entire file, depending on where you put the strict mode pragma.
+
+Function:
+
+```js
+function foo() {
+	"use strict";
+
+	// this code is strict mode
+
+	function bar() {
+		// this code is strict mode
+	}
+}
+
+// this code is not strict mode
+```
+
+Entire file:
+
+```js
+"use strict";
+
+function foo() {
+	// this code is strict mode
+
+	function bar() {
+		// this code is strict mode
+	}
+}
+
+// this code is strict mode
+```
+
+A key benefit is disallowing the implicit auto-global variable declaration from omitting `var`:
+
+```js
+function foo() {
+	"use strict";	// turn on strict mode
+	a = 1;			// `var` missing, ReferenceError
+}
+
+foo();
+```

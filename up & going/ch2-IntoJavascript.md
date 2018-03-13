@@ -282,9 +282,8 @@ foo();
 a;			// 1 -- oops, auto global variable :(
 ```
 
-Always formally declare your variables.  
-ES6 *lets* you declare variables to belong to individual blocks (pairs of `{ .. }`), using `let`.  
-Scoping rules almost the same.  
+* Always formally declare your variables.  
+* ES6 *lets* you declare variables to belong to individual blocks (pairs of `{ .. }`), using `let`. Scoping rules are almost the same.  
 
 ```js
 function foo() {
@@ -306,5 +305,5 @@ foo();
 // 5 7 9
 ```
 
-Because of `let` instead of `var`, `b` belongs only to the `if` statement, not to the whole `foo()` function.  
-`c` also belongs only to the `while` loop.  
+* Because of `let` instead of `var`, `b` belongs only to the `if` statement, not to the whole `foo()` function.  
+* `c` also belongs only to the `while` loop.  

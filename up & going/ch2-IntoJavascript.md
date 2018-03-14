@@ -400,3 +400,43 @@ var foo = function(){
 }
 
 ```
+
+### Immediately Invoked Function Expressions (IIFEs)
+
+*immediately invoked function expression* (IIFE):
+
+```js
+(function IIFE(){
+	console.log( "Hello!" );
+})();
+// "Hello!"
+```
+
+The outer `( .. )` that surrounds the function expression is a nuance of JS grammar to prevent it from being treated as a normal function declaration.
+
+The final `()` on the end of the expression is what executes the function expression before it.
+
+Using an IIFE in this fashion is often used to declare variables that won't affect the surrounding code:
+
+```js
+var a = 42;
+
+(function IIFE(){
+	var a = 10;
+	console.log( a );	// 10
+})();
+
+console.log( a );		// 42
+```
+
+IIFEs can also have return values:
+
+```js
+var x = (function IIFE(){
+	return 42;
+})();
+
+x;	// 42
+```
+
+The `42` value gets `return`ed from the `IIFE`-named function being executed, and is then assigned to `x`.

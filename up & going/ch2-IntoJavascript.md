@@ -385,3 +385,18 @@ function foo() {
 
 foo();
 ```
+
+## Functions Are Values
+
+```js
+function foo() {
+	// ..
+}
+
+// same as
+
+var foo = function(){
+	// anonymous function assigned to foo variable
+}
+
+```

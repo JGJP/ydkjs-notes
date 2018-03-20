@@ -581,3 +581,25 @@ But a more natural way of applying prototypes is a pattern called "behavior dele
 ## Old & New
 
 There are two main techniques you can use to "bring" the newer JavaScript stuff to the older browsers: polyfilling and transpiling.
+
+### Polyfilling
+
+The word "polyfill" was invented by [Remy Sharp](https://remysharp.com/2010/10/08/what-is-a-polyfill), it means taking the definition of a newer feature and producing a piece of code that's equivalent to the behavior, but is able to run in older JS environments.
+
+For example, ES6 defines a utility called `Number.isNaN(..)` to provide an accurate non-buggy check for `NaN` values, deprecating the original `isNaN(..)` utility. But it's easy to polyfill that utility so that you can start using it in your code regardless of whether the end user is in an ES6 browser or not.
+
+```js
+if (!Number.isNaN) {
+	Number.isNaN = function isNaN(x) {
+		return x !== x;
+	};
+}
+```
+
+The `if` statement guards against applying the polyfill definition in ES6 browsers where it will already exist. If it's not already present, we define `Number.isNaN(..)`.
+
+**Note:** The check we do here takes advantage of a quirk with `NaN` values, which is that they're the only value in the whole language that is not equal to itself. So the `NaN` value is the only one that would make `x !== x` be `true`.
+
+Not all new features are fully polyfillable. Sometimes most of the behavior can be polyfilled, but there are still small deviations. You should be really, really careful in implementing a polyfill yourself, to make sure you are adhering to the specification as strictly as possible.
+
+Trusted polyfills: ES5-Shim (https://github.com/es-shims/es5-shim) and ES6-Shim (https://github.com/es-shims/es6-shim).

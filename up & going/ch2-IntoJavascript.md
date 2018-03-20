@@ -603,3 +603,45 @@ The `if` statement guards against applying the polyfill definition in ES6 browse
 Not all new features are fully polyfillable. Sometimes most of the behavior can be polyfilled, but there are still small deviations. You should be really, really careful in implementing a polyfill yourself, to make sure you are adhering to the specification as strictly as possible.
 
 Trusted polyfills: ES5-Shim (https://github.com/es-shims/es5-shim) and ES6-Shim (https://github.com/es-shims/es6-shim).
+
+### Transpiling
+
+There's no way to polyfill new syntax, new code must be converted into older code equivalents, this is called "transpiling" (transforming + compiling).  
+Typically the transpiler is inserted into the build process, similar to a code linter or minifier.
+
+Important reasons to transpile:
+
+* The new syntax added to the language is designed to make your code more readable and maintainable.
+* If you transpile only for older browsers, but serve the new syntax to the newest browsers, you get to take advantage of browser performance optimizations with the new syntax.
+* Using the new syntax earlier allows it to be tested more robustly in the real world, which provides earlier feedback to the JavaScript committee (TC39).
+
+Here's a quick example of transpiling. ES6 adds a feature called "default parameter values." It looks like this:
+
+```js
+function foo(a = 2) {
+	console.log( a );
+}
+
+foo();		// 2
+foo( 42 );	// 42
+```
+
+This syntax is invalid in pre-ES6 engines.
+
+```js
+function foo() {
+	var a = arguments[0] !== (void 0) ? arguments[0] : 2;
+	console.log( a );
+}
+```
+
+This checks to see if the `arguments[0]` value is `void 0` (aka `undefined`), and if so provides the `2` default value; otherwise, it assigns whatever was passed.
+
+You may not have realized just from looking at the ES6 version that `undefined` is the only value that can't get explicitly passed in for a default-value parameter, but the transpiled code makes that much more clear.
+
+If you use a transpiler by default, you'll always be able to make that switch to newer syntax whenever you find it useful, rather than always waiting for years for today's browsers to phase out.
+
+Good transpilers:  
+
+* Babel (https://babeljs.io) (formerly 6to5): Transpiles ES6+ into ES5
+* Traceur (https://github.com/google/traceur-compiler): Transpiles ES6, ES7, and beyond into ES5

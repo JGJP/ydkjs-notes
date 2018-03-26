@@ -23,3 +23,29 @@ In a traditional compiled-language process, a program will undergo typically thr
     So, rather than get mired in details, we'll just handwave and say that there's a way to take our above described AST for `var a = 2;` and turn it into a set of machine instructions to actually *create* a variable called `a` (including reserving memory, etc.), and then store a value into `a`.
 
     **Note:** The details of how the engine manages system resources are deeper than we will dig, so we'll just take it for granted that the engine is able to create and store variables as needed.
+
+## Understanding Scope
+
+### The Cast
+
+1. *Engine*: responsible for start-to-finish compilation and execution of a JavaScript program.
+
+2. *Compiler*: handles all the dirty work of parsing and code-generation.
+
+3. *Scope*: collects and maintains a look-up list of all the declared identifiers (variables), and enforces a strict set of rules as to how these are accessible to currently executing code.
+
+### Back & Forth
+
+*Engine* sees `var a = 2;` as two distinct statements, one which *Compiler* will handle during compilation, and one which *Engine* will handle during execution.
+
+The first thing *Compiler* will do with this program is perform lexing to break it down into tokens.
+
+*Compiler* will then proceed as:
+
+1. Encountering `var a`, *Compiler* asks *Scope* to see if a variable `a` already exists for that particular scope collection. If so, *Compiler* ignores this declaration and moves on. Otherwise, *Compiler* asks *Scope* to declare a new variable called `a` for that scope collection.
+
+2. *Compiler* then produces code for *Engine* to later execute, to handle the `a = 2` assignment. The code *Engine* runs will first ask *Scope* if there is a variable called `a` accessible in the current scope collection. If so, *Engine* uses that variable. If not, *Engine* looks *elsewhere*.
+
+If *Engine* eventually finds a variable, it assigns the value `2` to it. If not, *Engine* will throw an error!
+
+To summarize: First, *Compiler* declares a variable (if not previously declared in the current scope), and second, when executing, *Engine* looks up the variable in *Scope* and assigns to it, if found.

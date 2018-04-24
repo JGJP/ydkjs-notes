@@ -52,43 +52,31 @@ To summarize: First, *Compiler* declares a variable (if not previously declared 
 
 ### Compiler Speak
 
-When *Engine* executes the code that *Compiler* produced for step (2), it has to look-up the variable `a` to see if it has been declared, and this look-up is consulting *Scope*. But the type of look-up *Engine* performs affects the outcome of the look-up.
+- *Engine* executes code that *Compiler* produced
+- *Engine* consults *Scope* to look-up `a`
 
-In this case, it is said that *Engine* would be performing an "LHS" (Left-hand Side) look-up for the variable `a`. The other type of look-up is called "RHS" (Right-hand Side).
+Types of lookup:
 
-An LHS look-up is done when a variable appears on the left-hand side of an assignment operation, and an RHS look-up is done when a variable appears on the right-hand side of an assignment operation.
+1. "RHS" (Right-hand Side) look-up
+	- when a variable appears on the right-hand side of an assignment operation.
+	- simply finds value, for use
 
-To be more precise, an RHS look-up is indistinguishable, for our purposes, from simply a look-up of the value of some variable, whereas the LHS look-up is trying to find the variable container itself, so that it can assign. In this way, RHS doesn't *really* mean "right-hand side of an assignment" per se, it just, more accurately, means "not left-hand side".
-
-Yyou could also think "RHS" instead means "retrieve his/her source (value)", implying that RHS means "go get the value of...".
-
-```js
-console.log( a );
-```
-
-The reference to `a` is an RHS reference, because nothing is being assigned to `a` here.
+2. "LHS" (Left-hand Side) look-up
+	- when a variable appears on the left-hand side of an assignment operation
+	- finds variable container, to assign
 
 ```js
-a = 2;
-```
+console.log( a ); // RHS
 
-The reference to `a` here is an LHS reference, because it doesn't matter what the current value is, we simply want to find the variable as a target for the `= 2` assignment operation.
+a = 2; // LHS
 
-```js
-function foo(a) {
-	console.log( a ); // 2
+foo( 2 ); // foo is RHS
+
+function foo(a) { // LHS (assigning 2 to a)
+	console.log( a ); // RHS
 }
 
-foo( 2 );
+function bar(){ /* ... */ } // no lookup, declaration and value definition are handled during code generation
+
+var b = 2 // this is still LHS
 ```
-
-The last line that invokes `foo(..)` as a function call requires an RHS reference to `foo`, meaning, "go look-up the value of `foo`, and give it to me." Moreover, `(..)` means the value of `foo` should be executed, so it has to be a function.
-
-There is an implied `a = 2` when the value `2` is passed as an argument to the `foo(..)` function, in which case the `2` value is **assigned** to the parameter `a` -> LHS lookup.
-
-There's also an RHS reference for the value of `a`, and that resulting value is passed to `console.log(..)`.  
-`console.log(..)` is an RHS look-up for the `console` object, then a property-resolution occurs to see if it has a method called `log`.
-
-**Note:** You might be tempted to conceptualize the function declaration `function foo(a) {...` as a normal variable declaration and assignment, such as `var foo` and `foo = function(a){...`. In so doing, it would be tempting to think of this function declaration as involving an LHS look-up.
-
-However, the subtle but important difference is that *Compiler* handles both the declaration and the value definition during code-generation, such that when *Engine* is executing code, there's no processing necessary to "assign" a function value to `foo`. Thus, it's not really appropriate to think of a function declaration as an LHS look-up assignment in the way we're discussing them here.

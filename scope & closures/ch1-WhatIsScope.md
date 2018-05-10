@@ -112,3 +112,8 @@ function foo(a) { // LHS
 
 var c = foo( 2 ); // LHS, RHS
 ```
+
+## Nested Scope
+
+There are usually multiple scopes nested inside each other.  
+When a variable is not found in the immediate scope, *Engine* checks the next outer scope, continuing until the variable is found.

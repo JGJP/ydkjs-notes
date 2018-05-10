@@ -117,3 +117,14 @@ var c = foo( 2 ); // LHS, RHS
 
 There are usually multiple scopes nested inside each other.  
 When a variable is not found in the immediate scope, *Engine* checks the next outer scope, continuing until the variable is found.
+
+## Errors
+
+LHS and RHS behave differently when a variable is not found.
+
+When a RHS lookup fails, *Engine* throws a `ReferenceError`.
+
+When a LHS lookup fails, *Scope* will create a new variable in global *Scope* unless in "Strict Mode"  
+Strict Mode would cause *Engine* to throw a `ReferenceError`.
+
+When a variable is found in a RHS lookup, but you try to do something impossible with it, *Engine* throws a `TypeError`.

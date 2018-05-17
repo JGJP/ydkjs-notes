@@ -25,3 +25,43 @@ window.a
 * Non-global shadowed variables cannot be accessed from inner scopes
 
 Lexical scope is only defined by where a function is declared, not where it's invoked from.
+
+## Cheating Lexical
+
+Modifying lexical scope at run-time leads to poorer performance.  
+
+Two ways to modify (cheat) lexical scope at run-time:  
+
+### `eval`
+
+`eval()` takes a string and treats it like code that was originally written.  
+
+*Engine* won't know or care whether the code was originally there or is a result of `eval`.
+
+```js
+function foo(str, a) {
+	eval( str ); // cheating! new variable b shadows global b
+	console.log( a, b );
+}
+
+var b = 2;
+
+foo( "var b = 3;", 1 ); // 1 3
+```
+
+`"use strict"` prevents this from happening:  
+
+```js
+function foo(str) {
+   "use strict";
+   eval( str ); // a is declared in eval's own separate scope
+   console.log( a ); // ReferenceError: a is not defined
+}
+
+foo( "var a = 2" );
+```
+
+A similar effect can be achieved through `setTimeout(..)` and `setInterval(..)`.  
+They evaluate strings passed in as a first argument, this is legacy behavior.
+
+The `new Function(..)` function constructor will evaluate a string passed as its ***last*** argument.

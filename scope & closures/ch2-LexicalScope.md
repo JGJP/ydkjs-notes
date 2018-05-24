@@ -65,3 +65,60 @@ A similar effect can be achieved through `setTimeout(..)` and `setInterval(..)`.
 They evaluate strings passed in as a first argument, this is legacy behavior.
 
 The `new Function(..)` function constructor will evaluate a string passed as its ***last*** argument.
+
+### `with`
+
+Usage of `with`:
+
+```js
+var obj = {
+	a: 1,
+	b: 2,
+	c: 3
+};
+
+// more "tedious" to repeat "obj"
+obj.a = 2;
+obj.b = 3;
+obj.c = 4;
+
+// "easier" short-hand
+with (obj) {
+	a = 3;
+	b = 4;
+	c = 5;
+}
+```
+
+How it can go wrong:
+
+```js
+function foo(obj) {
+	with (obj) {
+		a = 2;
+	}
+}
+
+var o1 = {
+	a: 3
+};
+
+var o2 = {
+	b: 3
+};
+
+foo( o1 );
+console.log( o1.a ); // 2
+
+foo( o2 );
+console.log( o2.a ); // undefined
+console.log( a ); // 2 -- Oops, leaked global!
+```
+
+`with` makes a new scope out of `obj`, but if a LHS lookup fails within that scope, it creates a new variable in global scope.
+
+Strict mode disallows usage of `with`.
+
+### Performance
+
+*Engine* will not perform certain runtime optimizations when it encounters `eval()` or `with`, so it's also better for performance to never use them.
